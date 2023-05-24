@@ -1,6 +1,5 @@
 import React from 'react'
 import "./register.css"
-import NavBar from '../../components/navbar/NavBar'
 
 function Register() {
   return (
