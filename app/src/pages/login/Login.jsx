@@ -4,7 +4,7 @@ import "./login.css"
 function Login() {
   return (
     <>
-      <form className="register" action="registro" method="post">
+      <form className="login" action="Login" method="post">
         <h2>Login de Usuario</h2>
 
         <label htmlFor="correo">Correo electrónico:</label>
