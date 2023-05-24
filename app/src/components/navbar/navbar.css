@@ -14,11 +14,13 @@ li {
     display: flex;
     align-items: center;
     gap: 5px;
-    color: #80888f;
+    color: #000000;
 }
 
 li:hover {
     cursor: pointer;
+    border-radius: 5%;
+    background-color: #4c86af;
 }
 
 /* Colocala el css que del componente, lo de arriba lo puedes quitar */

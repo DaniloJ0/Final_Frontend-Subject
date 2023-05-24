@@ -3,7 +3,19 @@ import "./login.css"
 
 function Login() {
   return (
-    <div>Login</div>
+    <>
+      <form className="register" action="registro" method="post">
+        <h2>Login de Usuario</h2>
+
+        <label htmlFor="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required placeholder="Ingrese su correo electrónico" />
+       
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required></input>
+       
+        <input type="submit" value="Login" />
+      </form>
+    </>
   )
 }
 

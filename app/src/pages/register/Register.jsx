@@ -13,9 +13,14 @@ function Register() {
 
         <label htmlFor="correo">Correo electrónico:</label>
         <input type="email" id="correo" name="correo" required placeholder="Ingrese su correo electrónico" />
+       
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required></input>
+       
+        <label htmlFor="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{10}" />
 
-        <label htmlFor="telefono">Número de teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required placeholder="Ingrese su número de teléfono" />
+        
 
         <input type="submit" value="Registrarse" />
       </form>
