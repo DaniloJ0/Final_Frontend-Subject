@@ -1,30 +1,52 @@
-import React from 'react'
-import "./register.css"
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
 
-function Register() {
+export default function FormPropsTextFields() {
   return (
-    <>
-      <form className="register" action="registro" method="post">
-        <h2>Registro de Usuario</h2>
-
-        <label htmlFor="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su nombre" />
-
-        <label htmlFor="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" required placeholder="Ingrese su correo electrónico" />
-       
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required></input>
-       
-        <label htmlFor="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{10}" />
-
-        
-
-        <input type="submit" value="Registrarse" />
-      </form>
-    </>
-  )
+    <Box
+      component="form"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& .MuiTextField-root': { m: 1, width: '25ch', display: 'block' },
+        '& .MuiButton-root': { m: 1, display: 'block' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+      <TextField
+          id="outlined-required"
+          label="Name"
+          type="Text"
+          
+        />
+        <TextField
+          id="outlined-required"
+          label="Email"
+          type="email"
+          
+        />
+        <TextField
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+        />
+        <TextField
+          id="outlined-number"
+          label="Phone"
+          type="Tel"
+        />
+        <Button variant="contained" endIcon={<SendIcon />}>
+        Send
+      </Button>
+      </div>
+      
+    </Box>
+  );
 }
-
-export default Register

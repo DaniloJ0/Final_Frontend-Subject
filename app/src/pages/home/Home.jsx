@@ -11,7 +11,7 @@ function Home() {
       <NavBar />
       <Sidebar />
       <Register/>
-      {/* <Login/> */}
+      <Login/>
     </>
     
   )

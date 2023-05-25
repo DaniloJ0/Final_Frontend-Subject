@@ -1,22 +1,39 @@
-import React from 'react'
-import "./login.css"
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
 
-function Login() {
+export default function FormPropsTextFields() {
   return (
-    <>
-      <form className="login" action="Login" method="post">
-        <h2>Login de Usuario</h2>
-
-        <label htmlFor="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" required placeholder="Ingrese su correo electrónico" />
-       
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required></input>
-       
-        <input type="submit" value="Login" />
-      </form>
-    </>
-  )
+    <Box
+      component="form"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& .MuiTextField-root': { m: 1, width: '25ch', display: 'block' },
+        '& .MuiButton-root': { m: 1, display: 'block' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+      <TextField
+          id="outlined-required"
+          label="Email"
+          type="email"
+          
+        />
+        <TextField
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+        />
+        <Button variant="contained" endIcon={<SendIcon />}>Send</Button>
+      </div>
+      
+    </Box>
+  );
 }
-
-export default Login
