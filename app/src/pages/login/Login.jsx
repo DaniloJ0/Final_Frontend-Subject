@@ -18,7 +18,7 @@ export default function FormPropsTextFields() {
       noValidate
       autoComplete="off"
     >
-      <div>
+      <div style={{ borderRadius: '5px', border: '1px solid gray', padding: '10px', textAlign: 'center' }}>
       <TextField
           id="outlined-required"
           label="Email"
@@ -31,7 +31,8 @@ export default function FormPropsTextFields() {
           type="password"
           autoComplete="current-password"
         />
-        <Button variant="contained" endIcon={<SendIcon />}>Send</Button>
+        <div><Button variant="contained" endIcon={<SendIcon />}>Send</Button></div>
+        
       </div>
       
     </Box>

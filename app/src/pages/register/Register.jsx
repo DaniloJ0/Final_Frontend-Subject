@@ -18,15 +18,15 @@ export default function FormPropsTextFields() {
       noValidate
       autoComplete="off"
     >
-      <div>
+      <div style={{ borderRadius: '5px', border: '1px solid gray', padding: '10px', textAlign: 'center' }}>
       <TextField
-          id="outlined-required"
+          id="outlined-Name"
           label="Name"
           type="Text"
           
         />
         <TextField
-          id="outlined-required"
+          id="outlined-Email"
           label="Email"
           type="email"
           
@@ -42,9 +42,9 @@ export default function FormPropsTextFields() {
           label="Phone"
           type="Tel"
         />
-        <Button variant="contained" endIcon={<SendIcon />}>
+        <div><Button variant="contained" endIcon={<SendIcon />}>
         Send
-      </Button>
+      </Button></div>
       </div>
       
     </Box>
