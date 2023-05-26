@@ -13,13 +13,14 @@ export default function FormPropsTextFields() {
         flexDirection: 'column',
         alignItems: 'center',
         '& .MuiTextField-root': { m: 1, width: '25ch', display: 'block' },
-        '& .MuiButton-root': { m: 1, display: 'block' },
+        '& .MuiButton-root': { m: 1,alignItems:'center' },'& h2': { fontFamily: 'Arial', fontWeight: 'normal' },
       }}
       noValidate
       autoComplete="off"
     >
-      <div style={{ borderRadius: '5px', border: '1px solid gray', padding: '10px', textAlign: 'center' }}>
-      <TextField
+      <div style={{ borderRadius: '43px', border: '3px solid #e2e2e2', padding: '10px', textAlign: 'center',marginBottom:'10px' }}>
+        <h2>Registro</h2>
+        <TextField
           id="outlined-Name"
           label="Name"
           type="Text"
