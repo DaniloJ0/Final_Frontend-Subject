@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 
-export default function FormPropsTextFields() {
+function Login() {
   return (
     <Box
       component="form"
@@ -37,5 +37,7 @@ export default function FormPropsTextFields() {
       </div>
       
     </Box>
-  );
+  )
 }
+
+export default Login
