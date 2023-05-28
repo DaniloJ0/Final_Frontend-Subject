@@ -2,7 +2,10 @@ import React from 'react'
 
 function ContentHome() {
   return (
-    <div>ContentHome</div>
+    <div>
+      <h1>HOLAAAAAAAAAAAAAA</h1>
+      ContentHome</div>
+    
   )
 }
 
