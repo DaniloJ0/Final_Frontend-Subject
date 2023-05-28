@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "../../img/caduceo.png";
 import { useNavigate, Link } from "react-router-dom";
-
+import notificacionOff from "../../img/campana_sin_32.png";
+import notificacionOn from "../../img/campana_con_32.png";
+import "./styles.css";
 
 export default function SimpleBottomNavigation() {
   const navigate = useNavigate()
@@ -68,6 +70,14 @@ export default function SimpleBottomNavigation() {
           </Link>
         </li>
         <li>
+          <Link
+            to="#"
+            className="block pt-3 pl-3  text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:px-2 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+          >
+           <img src={notificacionOff} alt="notificacion" className="w-5 hover-shake" />
+          </Link>
+        </li>
+        <li>
           <button
             type="button"
             className="text-white mt-1 bg-red-200 hover:bg-red-300 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
@@ -76,6 +86,7 @@ export default function SimpleBottomNavigation() {
             Salir
           </button>
         </li>
+        
       </ul>
     </div>
   </div>

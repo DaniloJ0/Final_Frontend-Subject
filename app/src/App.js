@@ -5,6 +5,7 @@ import RegisterPage from "./pages/register/RegisterPage";
 import '../src/css/tailwind.css';
 import SacarCita from "./pages/sacarCita/SacarCita";
 import CitasProgramadas from "./pages/citasProgramadas/CitasProgramadas";
+import "./App.css"
 
 function App() {
   return (

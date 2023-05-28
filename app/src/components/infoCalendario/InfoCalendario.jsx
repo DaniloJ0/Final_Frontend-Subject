@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-const Calendario = () => {
-  const [markedDates, setMarkedDates] = useState([]);
+const CitasCompletas = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [markedDates, setMarkedDates] = useState([]);
 
   useEffect(() => {
     const savedMarkedDates = JSON.parse(localStorage.getItem('markedDates'));
@@ -13,15 +13,15 @@ const Calendario = () => {
     }
   }, []);
 
-  const isDayMarked = (date) => {
-    const dateToCompare = date.toISOString().slice(0, 10);
-    return markedDates.includes(dateToCompare);
-  };
-
   const handleDateChange = (date) => {
     if (isDayMarked(date)) {
       setSelectedDate(date);
     }
+  };
+
+  const isDayMarked = (date) => {
+    const dateToCompare = date.toISOString().slice(0, 10);
+    return markedDates.some((markedDate) => markedDate.fecha === dateToCompare);
   };
 
   const tileClassName = ({ date }) => {
@@ -33,20 +33,22 @@ const Calendario = () => {
 
   return (
     <div className="container mx-auto mt-8">
-      <h2 className="text-xl font-bold mb-4">Citas programadas</h2>
-      {selectedDate && (
-        <input
-          type="text"
-          className="border border-gray-300 px-4 py-2 rounded mb-4"
-          value={selectedDate.toISOString().slice(0, 10)}
-          readOnly
-        />
-      )}
-      <Calendar
-        onChange={handleDateChange}
-        tileClassName={tileClassName}
-        selectRange={false}
-      />
+      <h2 className="text-xl font-bold mb-4">Calendario de turnos</h2>
+      <Calendar onChange={handleDateChange} value={selectedDate} tileClassName={tileClassName} selectRange={false} />
+      <div className="mt-4">
+        {selectedDate &&
+          markedDates.map((markedDate) => {
+            if (markedDate.fecha === selectedDate.toISOString().slice(0, 10)) {
+              return (
+                <div key={markedDate.fecha}>
+                  <p className="font-bold">Fecha: {markedDate.fecha}</p>
+                  <p>Texto: {markedDate.texto}</p>
+                </div>
+              );
+            }
+            return null;
+          })}
+      </div>
       <style jsx>{`
         .marked {
           background-color: red;
@@ -57,4 +59,4 @@ const Calendario = () => {
   );
 };
 
-export default Calendario;
+export default CitasCompletas;
