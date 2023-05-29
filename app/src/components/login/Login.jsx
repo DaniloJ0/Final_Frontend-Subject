@@ -52,57 +52,59 @@ function Login() {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        "& .MuiTextField-root": {
-          m: 1,
-          width: "25ch",
-          display: "block",
-          backgroundColor: "#F0F0F0",
-        },
-        "& .MuiButton-root": { m: 1, alignItems: "center" },
-        "& h2": { fontFamily: "Arial", fontWeight: "normal" },
-      }}
-      onSubmit={handleSubmit}
-      noValidate
-      autoComplete="off"
-    >
-      <div
-        style={{
-          borderRadius: "13px",
-          padding: "10px",
-          textAlign: "center",
-          backgroundColor: "#e2e2e2 ",
+    <div className="h-screen mt-10">
+      <Box
+        component="form"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          "& .MuiTextField-root": {
+            m: 1,
+            width: "25ch",
+            display: "block",
+            backgroundColor: "#F0F0F0",
+          },
+          "& .MuiButton-root": { m: 1, alignItems: "center" },
+          "& h2": { fontFamily: "Arial", fontWeight: "normal" },
         }}
+        onSubmit={handleSubmit}
+        noValidate
+        autoComplete="off"
       >
-        <h2>Login</h2>
-        <TextField
-          id="outlined-required"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          label="Email"
-          type="email"
-        />
-        <TextField
-          id="outlined-password-input"
-          name="password"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-          value={formData.password}
-          onChange={handleInputChange}
-        />
-        <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-          Send
-        </Button>
-      </div>
-      {errorMessage && <p sx={{color: "red"}}>{errorMessage}</p>}
-    </Box>
+        <div
+          style={{
+            borderRadius: "13px",
+            padding: "10px",
+            textAlign: "center",
+            backgroundColor: "#e2e2e2 ",
+          }}
+        >
+          <h2>Login</h2>
+          <TextField
+            id="outlined-required"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            label="Email"
+            type="email"
+          />
+          <TextField
+            id="outlined-password-input"
+            name="password"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+            value={formData.password}
+            onChange={handleInputChange}
+          />
+          <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+            Send
+          </Button>
+        </div>
+        {errorMessage && <p sx={{ color: "red" }}>{errorMessage}</p>}
+      </Box>
+    </div>
   );
 }
 
