@@ -6,6 +6,7 @@ const Calendario = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [markedDates, setMarkedDates] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  
 
   useEffect(() => {
     const savedMarkedDates = JSON.parse(localStorage.getItem('markedDates'));
@@ -34,7 +35,9 @@ const Calendario = () => {
       localStorage.setItem('markedDates', JSON.stringify(updatedMarkedDates));
       setSelectedDate(null);
       setInputValue('');
+      window.location.href = '/citasprogramadas';
     }
+    
   };
 
   const handleRemoveMarkedDate = () => {
@@ -70,7 +73,9 @@ const Calendario = () => {
     <div className="container mx-auto mt-8 flex flex-col justify-center items-center">
       <h2 className="text-xl font-bold mb-4">Calendario de turnos</h2>
       <div>
-        {isDaySelected(selectedDate) ? (
+        {
+        !inputValue? "":
+        isDaySelected(selectedDate) ? (
           isDayMarked(selectedDate) ? (
             <button
               className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mb-4"
@@ -116,7 +121,8 @@ const Calendario = () => {
           rows="4"
           class="block p-2.5 w-full text-sm text-black  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Escriba alguna información de la cita aquí..."
-        ></textarea>
+          ></textarea>
+          {!inputValue && <p className="text-red-600 text-center mt-2 font-bold">Ingrese información para agendar la cita</p>}
       </div>
 
       <style jsx>{`
