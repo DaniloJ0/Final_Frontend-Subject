@@ -14,6 +14,42 @@ const CitasCompletas = () => {
       setMarkedDates(savedMarkedDates);
     }
   }, []);
+  // const currentDate = new Date("2023-06-01");
+
+  useEffect(() => {
+    markedDates.forEach((markedDate) => {
+      const currentDate = new Date();
+      const targetDate = new Date(markedDate.fecha);
+      targetDate.setDate(targetDate.getDate() - 1); // Restar 1 día a la fecha marcada
+  
+      // Verificar si la fecha objetivo es igual a la fecha actual o un día antes
+      if (
+        (targetDate.getDate() === currentDate.getDate() &&
+          targetDate.getMonth() === currentDate.getMonth() &&
+          targetDate.getFullYear() === currentDate.getFullYear()) ||
+        (targetDate.getDate() === currentDate.getDate() - 1 &&
+          targetDate.getMonth() === currentDate.getMonth() &&
+          targetDate.getFullYear() === currentDate.getFullYear() &&
+          targetDate.getMonth() === currentDate.getMonth())
+      ) {
+        const notificaciones = JSON.parse(localStorage.getItem('notificaciones')) || [];
+  
+        // Verificar si la notificación ya existe en el Local Storage
+        const existeNotificacion = notificaciones.some(
+          (notificacion) =>
+            notificacion.fecha === markedDate.fecha && notificacion.texto === markedDate.texto
+        );
+  
+        if (!existeNotificacion) {
+          // Agregar la notificación solo si no existe
+          notificaciones.push(markedDate);
+          localStorage.setItem('notificaciones', JSON.stringify(notificaciones));
+        }
+      }
+    });
+  }, [markedDates]);
+  
+  
 
   const isDaySelected = (date) => {
     return (
