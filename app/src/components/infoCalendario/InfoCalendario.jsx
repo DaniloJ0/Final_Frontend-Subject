@@ -14,14 +14,13 @@ const CitasCompletas = () => {
       setMarkedDates(savedMarkedDates);
     }
   }, []);
-  // const currentDate = new Date("2023-06-01");
 
   useEffect(() => {
     markedDates.forEach((markedDate) => {
       const currentDate = new Date();
       const targetDate = new Date(markedDate.fecha);
       targetDate.setDate(targetDate.getDate() - 1); // Restar 1 día a la fecha marcada
-  
+
       // Verificar si la fecha objetivo es igual a la fecha actual o un día antes
       if (
         (targetDate.getDate() === currentDate.getDate() &&
@@ -32,24 +31,27 @@ const CitasCompletas = () => {
           targetDate.getFullYear() === currentDate.getFullYear() &&
           targetDate.getMonth() === currentDate.getMonth())
       ) {
-        const notificaciones = JSON.parse(localStorage.getItem('notificaciones')) || [];
-  
+        const notificaciones =
+          JSON.parse(localStorage.getItem("notificaciones")) || [];
+
         // Verificar si la notificación ya existe en el Local Storage
         const existeNotificacion = notificaciones.some(
           (notificacion) =>
-            notificacion.fecha === markedDate.fecha && notificacion.texto === markedDate.texto
+            notificacion.fecha === markedDate.fecha &&
+            notificacion.texto === markedDate.texto
         );
-  
+
         if (!existeNotificacion) {
           // Agregar la notificación solo si no existe
           notificaciones.push(markedDate);
-          localStorage.setItem('notificaciones', JSON.stringify(notificaciones));
+          localStorage.setItem(
+            "notificaciones",
+            JSON.stringify(notificaciones)
+          );
         }
       }
     });
   }, [markedDates]);
-  
-  
 
   const isDaySelected = (date) => {
     return (
@@ -64,6 +66,7 @@ const CitasCompletas = () => {
           (markedDate) => markedDate.fecha === date.toLocaleDateString("en-US")
         )
       );
+      console.log(selectedDate);
     } else {
       setSelectedDate(null);
       setRatingShow(false);
@@ -87,7 +90,9 @@ const CitasCompletas = () => {
 
   return (
     <div className="container mx-auto mt-8">
-      <h2 className="text-xl font-bold mb-4">Citas programadas del usuario</h2>
+      <h2 className="text-4xl font-bold mb-4 ">
+        Citas programadas del usuario
+      </h2>
       <div>
         {selectedDate && (
           <div
@@ -110,14 +115,17 @@ const CitasCompletas = () => {
                 setRatingShow(!ratingShow);
               }}
               type="button"
-              className= {ratingShow ?"text-white bg-blue-200 hover:bg-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              :"text-white bg-red-200 hover:bg-red-300 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"}
+              className={
+                ratingShow
+                  ? "text-white bg-blue-200 hover:bg-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  : "text-white bg-red-200 hover:bg-red-300 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+              }
             >
               {ratingShow ? "Ocultar feedback" : "Calificar servicio"}
             </button>
           </div>
         )}
-        <div className="flex flex-wrap gap-28 ">
+        <div className="flex flex-wrap gap-72 mt-16 ">
           <div>
             <p className="mb-2 font-semibold">
               Seleccione la fecha de su cita para más detalle
@@ -129,7 +137,9 @@ const CitasCompletas = () => {
               selectRange={false}
             />
           </div>
-          <div className="mr-25">{ratingShow && <RatingComponent />}</div>
+          <div className="mr-25">
+            {ratingShow && <RatingComponent selectedDay={selectedDate} />}
+          </div>
         </div>
       </div>
       <style jsx>{`

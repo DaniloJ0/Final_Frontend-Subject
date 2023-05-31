@@ -24,7 +24,8 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí puedes realizar la lógica de registro del usuario
-    if (!formData.username || !formData.email || !formData.password) {
+    console.log(formData);
+    if (!formData.name || !formData.email || !formData.password || !formData.telefono) {
       setErrorMessage("Por favor, completa todos los campos.");
       return;
     }

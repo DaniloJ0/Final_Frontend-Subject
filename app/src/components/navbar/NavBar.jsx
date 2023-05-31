@@ -5,6 +5,7 @@ import notificacionOff from "../../img/campana_sin_32.png";
 import notificacionOn from "../../img/campana_con_32.png";
 
 import "./styles.css";
+//elimar notificaciones cuando se hace el feedback
 
 function NavBar() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function NavBar() {
     // Actualizar las notificaciones en el estado y el Local Storage
     setNotificaciones([...notificaciones, ...filteredNotificaciones]);
     localStorage.setItem("notificaciones", JSON.stringify([...notificaciones, ...filteredNotificaciones]));
-  }, []);
+  }, [mostrarNotificacion]);
   
   
   

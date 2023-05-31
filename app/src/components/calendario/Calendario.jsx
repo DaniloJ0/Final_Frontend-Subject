@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-
+import Swal from 'sweetalert2';
 const Calendario = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [markedDates, setMarkedDates] = useState([]);
@@ -10,11 +10,18 @@ const Calendario = () => {
 
   useEffect(() => {
     const savedMarkedDates = JSON.parse(localStorage.getItem('markedDates'));
+    // add dates after today
     if (savedMarkedDates) {
-      setMarkedDates(savedMarkedDates);
+      const currentDate = new Date();
+      const filteredMarkedDates = savedMarkedDates.filter((markedDate) => {
+        const markedDateDate = new Date(markedDate.fecha);
+        return markedDateDate >= currentDate;
+      });
+      setMarkedDates(filteredMarkedDates);
     }
   }, []);
 
+ 
   const handleDateChange = (date) => {
     const currentDate = new Date();
     if (date >= currentDate) {
@@ -27,6 +34,14 @@ const Calendario = () => {
   };
 
   const handleAddMarkedDate = () => {
+    if(!inputValue) {
+      Swal.fire({
+        icon: 'warning',
+        text: 'Por favor rellene el campo de texto',
+      });
+      return;
+    }
+
     if (selectedDate && inputValue) {
       const formattedDate = selectedDate.toLocaleDateString('en-US');
       const newMarkedDate = { fecha: formattedDate, texto: inputValue };
