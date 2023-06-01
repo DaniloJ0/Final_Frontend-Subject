@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import SendIcon from "@mui/icons-material/Send";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import Login from "../login/Login";
 
@@ -68,7 +65,7 @@ function Register() {
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
-              <h1 className="text-2xl font-semibold mb-5">Registrate</h1>
+              <h1 className="text-2xl font-semibold mb-5 text-center">Registrate</h1>
             </div>
             <div className="divide-y divide-gray-200">
             <div className="relative">
@@ -141,11 +138,12 @@ function Register() {
                     htmlFor="tel"
                     className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                   >
-                    Telefono
+                    Phone
                   </label>
                 </div>
-                <div className="relative">
-                  <button className="bg-blue-500 text-white rounded-md px-2 py-1" type="submit">Submit</button>
+                <div className="relative"><div className="flex justify-center">
+                    <button className="bg-blue-500 text-white rounded-md px-2 py-1" type="submit">Crear Cuenta</button>
+                  </div>
         
                 </div>
               </div>{errorMessage && <p>{errorMessage}</p>}

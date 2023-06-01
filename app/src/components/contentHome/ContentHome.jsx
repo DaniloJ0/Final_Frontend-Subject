@@ -12,31 +12,15 @@ function ContentHome() {
               className="block rounded-lg shadow-lg px-6 py-12 lg:py-6 xl:py-12 md:px-12 lg:-mr-14"
               style={{ background: 'hsla(0, 0%, 100%, 0.55)', backdropFilter: 'blur(30px)' }}
             >
-              <h3 className="text-2xl font-bold mb-3">We know how valuable your time is</h3>
-              <h5 className="text-lg text-blue-600 font-bold mb-12 lg:mb-10 xl:mb-12">
-                Let us answer your questions
-              </h5>
-
-              <p className="font-bold mb-4">Anim pariatur cliche reprehenderit?</p>
-              <p className="text-gray-500 mb-6">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt autem numquam dolore
-                molestias aperiam culpa alias veritatis architecto eos, molestiae vitae ex eligendi
-                libero eveniet dolorem, doloremque rem aliquid perferendis.
+              <h3 className="text-2xl font-bold mb-3">Sobre Nosotros</h3>
+         
+              <p className="text-gray-500 mb-6"> En nuestra plataforma, nos dedicamos a simplificar el proceso de programación de citas médicas para ahorrar tiempo y 
+              brindar comodidad a nuestros usuarios. Una de las principales ventajas que ofrecemos es la posibilidad de realizar un registro de usuario, 
+              lo que permite un acceso rápido y personalizado a nuestros servicios.<br></br>
+               Nuestra plataforma también ofrece notificaciones automáticas para recordarle a los usuarios sobre sus citas médicas programadas. 
+              Ya no es necesario preocuparse por olvidar una cita importante. Nos encargamos de recordarles para que puedan planificar su tiempo de manera efectiva. 
               </p>
 
-              <p className="font-bold mb-4">Non cupidatat skateboard dolor brunch?</p>
-              <p className="text-gray-500 mb-6">
-                Distinctio corporis, iure facere ducimus quos consectetur ipsa ut magnam autem
-                doloremque ex! Id, sequi. Voluptatum magnam sed fugit iusto minus et suscipit?
-                Minima sunt at nulla tenetur, numquam unde quod modi magnam ab deserunt ipsam sint
-                aliquid dolores libero repellendus cupiditate mollitia quidem dolorem odit
-              </p>
-
-              <p className="font-bold mb-4">Praesentium voluptatibus temporibus consequatur non aspernatur?</p>
-              <p className="text-gray-500">
-                Minima sunt at nulla tenetur, numquam unde quod modi magnam ab deserunt ipsam sint
-                aliquid dolores libero repellendus cupiditate mollitia quidem dolorem.
-              </p>
             </div>
           </div>
 
@@ -96,7 +80,7 @@ function ContentHome() {
                     <a href="" className="text-gray-900"> Ana Castro</a></small>
                 </p>
                 <p className="mb-4 pb-2">
-                mi experiencia utilizando esta plataforma web para agendar mi cita médica fue excelente. Fue fácil de usar, la navegación fue intuitiva y logré agendar mi cita de manera rápida y eficiente. Sin duda, recomendaría esta plataforma a cualquiera que esté buscando un servicio de agendamiento de citas médicas confiable y conveniente
+                Mi experiencia utilizando esta plataforma web para agendar mi cita médica fue excelente. Fue fácil de usar, la navegación fue intuitiva y logré agendar mi cita de manera rápida y eficiente. Sin duda, recomendaría esta plataforma a cualquiera que esté buscando un servicio de agendamiento de citas médicas confiable y conveniente
                 </p>
                 </div>
             </div>
