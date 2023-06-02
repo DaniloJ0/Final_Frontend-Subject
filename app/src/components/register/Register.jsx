@@ -50,8 +50,8 @@ function Register() {
     // Restablecer el formulario y el mensaje de error
     setFormData({ name: "", email: "", password: "" });
     setErrorMessage("");
-    window.location.href = "/login";
-    navigate("/login");
+    window.location.href = "/";
+    navigate("/");
   };
 
   return (
@@ -65,7 +65,7 @@ function Register() {
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
-              <h1 className="text-2xl font-semibold mb-5 text-center">Registrate</h1>
+              <h1 className="text-2xl md:text-3xl font-bold  mb-5 text-center">Registrate</h1>
             </div>
             <div className="divide-y divide-gray-200">
             <div className="relative">
@@ -146,7 +146,7 @@ function Register() {
                   </div>
         
                 </div>
-              </div>{errorMessage && <p>{errorMessage}</p>}
+              </div>{errorMessage && <p className="text-red-600 font-semibold">{errorMessage}</p>}
             </div>
           </div>
         </div>

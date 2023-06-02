@@ -33,7 +33,7 @@ function Login() {
 
       if (user && user.password === formData.password) {
         // Credenciales válidas, redireccionar al usuario a la página de inicio
-        navigate("/");
+        navigate("/home");
       } else {
         // Credenciales inválidas, mostrar mensaje de error
         setErrorMessage(
@@ -59,7 +59,7 @@ function Login() {
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
-              <h1 className="text-2xl font-semibold mb-5 text-center">Ingresa</h1>
+              <h1 className="text-2xl md:text-3xl font-bold mb-5 text-center">Ingresa</h1>
             </div>
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
@@ -99,11 +99,11 @@ function Login() {
                     Password
                   </label>
                 </div>
-                <div className="relative"><div className="flex justify-center">
+                <div className=""><div className="flex justify-center">
                     <button className="bg-blue-500 text-white rounded-md px-2 py-1" type="submit">Ingresar</button>
                   </div>
                 </div>
-              </div>{errorMessage && <p>{errorMessage}</p>}
+              </div>{errorMessage && <p className="text-red-600 font-semibold">{errorMessage}</p>}
             </div>
           </div>
         </div>

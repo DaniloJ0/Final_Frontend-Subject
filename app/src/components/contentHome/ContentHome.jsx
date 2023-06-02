@@ -12,7 +12,7 @@ function ContentHome() {
               className="block rounded-lg shadow-lg px-6 py-12 lg:py-6 xl:py-12 md:px-12 lg:-mr-14"
               style={{ background: 'hsla(0, 0%, 100%, 0.55)', backdropFilter: 'blur(30px)' }}
             >
-              <h3 className="text-2xl font-bold mb-3">Sobre Nosotros</h3>
+              <h3 className="text-2xl md:text-5xl  font-bold mb-3">¿Quiénes somos?</h3>
          
               <p className="text-gray-500 mb-6"> En nuestra plataforma, nos dedicamos a simplificar el proceso de programación de citas médicas para ahorrar tiempo y 
               brindar comodidad a nuestros usuarios. Una de las principales ventajas que ofrecemos es la posibilidad de realizar un registro de usuario, 
@@ -74,10 +74,10 @@ function ContentHome() {
                 </div>
               </div>
               <div className="p-6">
-                <h5 className="font-bold text-lg mb-3">Facilidad</h5>
+                <h5 className="font-bold text-lg md:text-3xl mb-3">Facilidad</h5>
                 <p className="text-gray-500 mb-4">
                   <small>Publicado <u>30.05.2023</u> Por 
-                    <a href="" className="text-gray-900"> Ana Castro</a></small>
+                    <a href="#" className="text-gray-900"> Ana Castro</a></small>
                 </p>
                 <p className="mb-4 pb-2">
                 Mi experiencia utilizando esta plataforma web para agendar mi cita médica fue excelente. Fue fácil de usar, la navegación fue intuitiva y logré agendar mi cita de manera rápida y eficiente. Sin duda, recomendaría esta plataforma a cualquiera que esté buscando un servicio de agendamiento de citas médicas confiable y conveniente
@@ -99,7 +99,7 @@ function ContentHome() {
                 </div>
               </div>
               <div className="p-6">
-                <h5 className="font-bold text-lg mb-3">Intuitiva</h5>
+                <h5 className="font-bold text-lg md:text-3xl mb-3">Intuitiva</h5>
                 <p className="text-gray-500 mb-4">
                   <small>Publicado <u>20.05.2023</u> Por
                     <a href="" className="text-gray-900"> Jhon Gomez</a></small>
@@ -123,7 +123,7 @@ function ContentHome() {
                 </div>
               </div>
               <div className="p-6">
-                <h5 className="font-bold text-lg mb-3">Solución</h5>
+                <h5 className="font-bold text-lg md:text-3xl  mb-3">Solución</h5>
                 <p className="text-gray-500 mb-4">
                   <small>Publicado <u>20.05.2023</u> Por
                     <a href="" className="text-gray-900"> Sandra Arrieta</a></small>

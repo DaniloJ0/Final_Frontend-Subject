@@ -14,28 +14,33 @@ function NavBar() {
 
   const LogOut = (e) => {
     e.preventDefault();
-    return navigate("/login");
+    return navigate("/");
   };
 
   useEffect(() => {
     // Obtener notificaciones del Local Storage
-    const storedNotificaciones = JSON.parse(localStorage.getItem("notificaciones")) || [];
-  
+    const storedNotificaciones =
+      JSON.parse(localStorage.getItem("notificaciones")) || [];
+
     // Filtrar las notificaciones duplicadas
-    const filteredNotificaciones = storedNotificaciones.filter((notificacion) => {
-      return !notificaciones.some(
-        (existingNotificacion) =>
-          existingNotificacion.fecha === notificacion.fecha && existingNotificacion.texto === notificacion.texto
-      );
-    });
-  
+    const filteredNotificaciones = storedNotificaciones.filter(
+      (notificacion) => {
+        return !notificaciones.some(
+          (existingNotificacion) =>
+            existingNotificacion.fecha === notificacion.fecha &&
+            existingNotificacion.texto === notificacion.texto
+        );
+      }
+    );
+
     // Actualizar las notificaciones en el estado y el Local Storage
     setNotificaciones([...notificaciones, ...filteredNotificaciones]);
-    localStorage.setItem("notificaciones", JSON.stringify([...notificaciones, ...filteredNotificaciones]));
+    localStorage.setItem(
+      "notificaciones",
+      JSON.stringify([...notificaciones, ...filteredNotificaciones])
+    );
   }, [mostrarNotificacion]);
-  
-  
-  
+
   const handleNotificacionClick = () => {
     setMostrarNotificacion(!mostrarNotificacion);
   };
@@ -60,7 +65,7 @@ function NavBar() {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center">
+        <a href="/home" className="flex items-center">
           <img src={logo} className="h-8 mr-3" alt="Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             MeTocaFinal
@@ -91,7 +96,7 @@ function NavBar() {
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <Link
-                to="/"
+                to="/home"
                 className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:px-2 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 aria-current="page"
               >
@@ -127,34 +132,47 @@ function NavBar() {
                 />
                 {mostrarNotificacion && (
                   <div className="notificacion-pop-up absolute right-0 mt-2 mr-4 max-h-96 overflow-y-auto bg-white rounded-lg shadow-md p-4 w-max">
-                    {notificaciones.length ===0? "No hay notificaciones" : notificaciones.map((notificacion, index) => (
-                      <div
-                        key={notificacion.fecha}
-                        className={`mb-4 ${index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
-                          } p-2 rounded-lg`}
-                      >
-                        <p
-                          className={`font-bold text-lg ${index % 2 === 0 ? "text-blue-500" : "text-green-500"
-                            }`}
-                        >
-                          {notificacion.fecha}
-                        </p>
-                        <p
-                          className={`text-gray-700 ${index % 2 === 0 ? "text-blue-900" : "text-green-900"
-                            }`}
-                        >
-                          {notificacion.texto}
-                        </p>
-                        <button
-                          className="text-gray-500 font-bold hover:text-red-500 ml-auto focus:outline-none"
-                          onClick={() =>
-                            handleEliminarNotificacion(notificacion.fecha)
-                          }
-                        >
-                          Eliminar
-                        </button>
-                      </div>
-                    ))}
+                    {notificaciones.length === 0
+                      ? "No hay notificaciones"
+                      : notificaciones.map((notificacion, index) => (
+                          <div
+                            key={notificacion.fecha}
+                            className={`mb-4 ${
+                              index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                            } p-2 rounded-lg`}
+                          >
+                            <p
+                              className="font-bold text-lg"
+                            > Tienes una cita programada para el:
+                            </p>
+                            <p
+                              className={`font-bold text-lg ${
+                                index % 2 === 0
+                                  ? "text-blue-500"
+                                  : "text-green-500"
+                              }`}
+                            >
+                              {notificacion.fecha}
+                            </p>
+                            <p
+                              className={`text-gray-700 ${
+                                index % 2 === 0
+                                  ? "text-blue-900"
+                                  : "text-green-900"
+                              }`}
+                            >
+                              {`Info: ${notificacion.texto}`}
+                            </p>
+                            <button
+                              className="text-red-400 font-bold hover:text-red-600 ml-auto focus:outline-none"
+                              onClick={() =>
+                                handleEliminarNotificacion(notificacion.fecha)
+                              }
+                            >
+                              Eliminar
+                            </button>
+                          </div>
+                        ))}
                   </div>
                 )}
               </div>
