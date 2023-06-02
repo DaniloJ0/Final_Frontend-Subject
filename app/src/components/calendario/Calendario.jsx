@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-
+import Swal from 'sweetalert2';
 const Calendario = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [markedDates, setMarkedDates] = useState([]);
@@ -10,11 +10,18 @@ const Calendario = () => {
 
   useEffect(() => {
     const savedMarkedDates = JSON.parse(localStorage.getItem('markedDates'));
+    // add dates after today
     if (savedMarkedDates) {
-      setMarkedDates(savedMarkedDates);
+      const currentDate = new Date();
+      const filteredMarkedDates = savedMarkedDates.filter((markedDate) => {
+        const markedDateDate = new Date(markedDate.fecha);
+        return markedDateDate >= currentDate;
+      });
+      setMarkedDates(filteredMarkedDates);
     }
   }, []);
 
+ 
   const handleDateChange = (date) => {
     const currentDate = new Date();
     if (date >= currentDate) {
@@ -27,6 +34,14 @@ const Calendario = () => {
   };
 
   const handleAddMarkedDate = () => {
+    if(!inputValue) {
+      Swal.fire({
+        icon: 'warning',
+        text: 'Por favor rellene el campo de texto',
+      });
+      return;
+    }
+
     if (selectedDate && inputValue) {
       const formattedDate = selectedDate.toLocaleDateString('en-US');
       const newMarkedDate = { fecha: formattedDate, texto: inputValue };
@@ -74,21 +89,21 @@ const Calendario = () => {
       <h2 className="text-xl font-bold mb-4">Calendario de turnos</h2>
       <div>
         {
-        !inputValue? "":
+        
         isDaySelected(selectedDate) ? (
           isDayMarked(selectedDate) ? (
             <button
               className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mb-4"
               onClick={handleRemoveMarkedDate}
             >
-              Quitar fecha
+             Cancelar cita
             </button>
           ) : (
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4"
               onClick={handleAddMarkedDate}
             >
-              Marcar fecha
+              Marcar fecha  
             </button>
           )
         ) : (
@@ -109,8 +124,8 @@ const Calendario = () => {
       />
       <div className="flex flex-col mt-5 w-2/5">
         <label
-          for="message"
-          class="block mb-2 text-sm font-medium text-black"
+          htmlFor="message"
+          className="block mb-2 text-sm font-medium text-black"
         >
           Información
         </label>
@@ -119,7 +134,7 @@ const Calendario = () => {
           value={inputValue}
           onChange={handleInputChange}
           rows="4"
-          class="block p-2.5 w-full text-sm text-black  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block p-2.5 w-full text-sm text-black  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Escriba alguna información de la cita aquí..."
           ></textarea>
           {!inputValue && <p className="text-red-600 text-center mt-2 font-bold">Ingrese información para agendar la cita</p>}
